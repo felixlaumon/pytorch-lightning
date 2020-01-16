@@ -317,7 +317,7 @@ class TrainerIOMixin(ABC):
         model = self.get_model()
         checkpoint['state_dict'] = model.state_dict()
         if hasattr(model, "hparams"):
-            checkpoint['hparams'] = vars(model.hparams)
+            checkpoint['hparams'] = model.hparams
         else:
             warnings.warn(
                 "Did not find hyperparameters at model.hparams. Saving checkpoint without"
