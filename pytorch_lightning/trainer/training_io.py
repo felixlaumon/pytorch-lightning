@@ -190,6 +190,10 @@ class TrainerIOMixin(ABC):
             if 'hpc_' in name:
                 continue
 
+            # Ignore duplicated ckpts
+            if 'v0' in name:
+                continue
+
             if '.ckpt' in name:
                 epoch = name.split('epoch_')[1]
                 epoch = int(re.sub('[^0-9]', '', epoch))
